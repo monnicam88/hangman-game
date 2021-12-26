@@ -33,3 +33,4 @@ void exitTheGame();
 void cleanScreen();
 void waitAndReturnToMenu();
 
+bool validateNumber(const short int& number);
