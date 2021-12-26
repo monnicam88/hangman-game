@@ -164,3 +164,8 @@ void waitAndReturnToMenu() {
 	cleanScreen();
 	showGameInterface();
 }
+
+// Function to check if the letter entered by user is valid
+// Function to check if the letter entered by user is already entered before or not
+// Function to validate new attempts count and new words length
+// Function to check if the word is revealed or not
