@@ -23,6 +23,7 @@
 void generateDictionary();
 void showGameInterface();
 void readUserInput(std::string& option);
+void play();
 void changeTheWordsLength(const short int& new_word_length);
 void changeTheCountOfGivenAttempts(const short int& new_attempts);
 void readNewLengthOfTheWords(short int& new_length);
