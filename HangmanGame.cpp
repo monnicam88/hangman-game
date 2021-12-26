@@ -80,13 +80,16 @@ void play() {
 
 		if (user_option == "1") {
 		}
+		
 		else if (user_option == "2") {
 		}
-
+		
 		else if (user_option == "3") {
 			short int new_attempts_count = 0;
 			readTheNewAttemptsCount(new_attempts_count);
 			
+			// TO DO: Fix this validation to work with characters 
+			// because inputed character cause an infinite loop
 			// Check if user input is valid or not
 			if (!validateNumber(new_attempts_count)) {
 				std::cout << std::endl;
