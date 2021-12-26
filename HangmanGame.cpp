@@ -18,12 +18,12 @@
 
 std::vector<std::string> game_dictionary;
 short int length_of_the_word = 0;
-short int attempts_count = 5;
+short int attempts_count = 5;		// Initial attempts count
 
-const short int LOWER_BOUND = 3;
-const short int UPPER_BOUND = 10;
-const short int ASCII_CODE_a = 97;
-const short int ASCII_CODE_z = 122;
+const short int LOWER_BOUND = 3;	// Minimum count of attempts and minimal word length
+const short int UPPER_BOUND = 10;	// Maximum count of attempts and maximal word length
+const short int ASCII_CODE_a = 97;	// For validation of entered symbols
+const short int ASCII_CODE_z = 122;	// to check if they are only lowercase letters
 
 // Create the game dictionary. Push 
 // all words from the file in vector
@@ -164,4 +164,3 @@ void waitAndReturnToMenu() {
 	cleanScreen();
 	showGameInterface();
 }
-
