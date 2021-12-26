@@ -84,6 +84,16 @@ void play() {
 		}
 
 		else if (user_option == "3") {
+			short int new_attempts_count = 0;
+			readTheNewAttemptsCount(new_attempts_count);
+			
+			// Check if user input is valid or not
+			if (!validateNumber(new_attempts_count)) {
+				std::cout << std::endl;
+				std::cout << "		Incorrect attempts count!" << std::endl;
+				std::cout << std::endl;
+			}
+			else changeTheCountOfGivenAttempts(new_attempts_count);
 		}
 
 		else if (user_option == "4") {
@@ -165,7 +175,14 @@ void waitAndReturnToMenu() {
 	showGameInterface();
 }
 
+// Validate the word length and the count of attempts entered by user
+bool validateNumber(const short int& number) {
+	if (number >= LOWER_BOUND && number <= UPPER_BOUND) {
+		return true;
+	}
+	return false;
+}
+
 // Function to check if the letter entered by user is valid
 // Function to check if the letter entered by user is already entered before or not
-// Function to validate new attempts count and new words length
 // Function to check if the word is revealed or not
