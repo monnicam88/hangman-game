@@ -72,13 +72,115 @@ void play() {
 	std::vector<std::string> words_with_certain_length;
 	short int count_of_guessed_words = 0;
 
-	while (true) {
+	do {
 		readUserInput(user_option);
-
-		std::string word_to_be_guessed;
+		
+		// Represent the word that have to be guessed like string
+		std::string word_to_be_guessed;	
 		size_t size = game_dictionary.size();
 
 		if (user_option == "1") {
+			// Generate random word if user does not change the length
+			if (length_of_the_word == 0) {
+				word_to_be_guessed = game_dictionary[rand() % size];
+			}
+
+			// Generate the word with the length that user want
+			else {
+				for (size_t i = 0; i < size; i++) {
+					if (length_of_the_word == game_dictionary[i].size()) {
+						words_with_certain_length.push_back(game_dictionary[i]);
+					}
+				}
+				word_to_be_guessed = words_with_certain_length[rand() % words_with_certain_length.size()];
+			}
+
+			std::vector<bool> already_revealed_letters;
+			std::vector<char> already_entered_letters;
+			size_t size_word = word_to_be_guessed.size();
+
+			short int used_attempts = 0;
+			bool is_word_guessed = false;
+
+			// For every letter push 'false' in the vector of bool variables
+			for (auto& character : word_to_be_guessed) {
+				already_revealed_letters.push_back(false);
+			}
+
+			do {
+				std::cout << "	You now have " << (attempts_count - used_attempts) << " attempts." << std::endl;
+				std::cout << "	Guess the word:  ";;
+
+				// Traverse the word and check if there is any revealed letters or not
+				for (size_t i = 0; i < size_word; i++) {
+					if (!already_revealed_letters[i]) {
+						std::cout << "_ ";
+					}
+					else std::cout << word_to_be_guessed[i];
+				}
+
+				std::cout << std::endl;
+				std::cout << "		> Please, enter a letter: ";
+
+				char current_letter;
+				std::cin >> current_letter;
+				std::cout << std::endl;
+
+				// Check if the input is letter or another symbol
+				if (!validateLetter(current_letter)) {
+					std::cout << "  Your input is not correct! Please, enter a valid character to continue." << std::endl;
+					std::cout << std::endl;
+				}
+				else {
+					// Check if letter was already entered or not
+					if (!isLetterAlreadyEntered(already_entered_letters, current_letter)) {
+						bool current_letter_is_in_the_word = false;
+
+						for (size_t i = 0; i < size_word; i++) {
+							if (word_to_be_guessed[i] == current_letter) {
+								current_letter_is_in_the_word = true;
+								already_revealed_letters[i] = true;
+							}
+						}
+
+						// If inputed letter is not in the word increase the count of used attempts
+						if (!current_letter_is_in_the_word) {
+							++used_attempts;
+						}
+						// Check if word is already revealed or not
+						else if (isWordRevealed(already_revealed_letters)) {
+							is_word_guessed = true;
+							break;
+						}
+						// If current letter is not entered till now, push it back to 
+						// vector with another guessed letters
+						already_entered_letters.push_back(current_letter);
+					}
+					else {
+						std::cout << "  This letter was already entered. Please, enter a new one to continue! :)" << std::endl;
+						std::cout << std::endl;
+					}
+				}
+			} while ((attempts_count - used_attempts) > 0);
+
+			// Clear the vector with words with the length choosen by user
+			// to push words with another length if user want
+			words_with_certain_length.clear();
+			length_of_the_word = 0;
+
+			// If word is revealed show it to the user and 
+			// increase the counter of guessed words
+			if (!is_word_guessed) {
+				std::cout << "	Unfortunately, you did not guess the word " << word_to_be_guessed << std::endl;
+				std::cout << "		Wait to be returned to the menu ..." << std::endl;
+				waitAndReturnToMenu();
+			}
+			else {
+				std::cout << "	Congratulations! You successfully guessed the word " << word_to_be_guessed << std::endl;
+				std::cout << "		Wait to be returned to the menu ..." << std::endl;
+				waitAndReturnToMenu();
+				++count_of_guessed_words;
+			}
 		}
 		
 		else if (user_option == "2") {
@@ -115,7 +217,11 @@ void play() {
 		}
 
 		else incorrectUserInput();
-	}
+	} while (true);
+	
+	// Show the user how many words he managed to reveal
+	std::cout << std::endl;
+	std::cout << "				  The words you manage to guess are: " << count_of_guessed_words << std::endl;
 }
 
 // Change the length of the words
@@ -188,6 +294,35 @@ void waitAndReturnToMenu() {
 	showGameInterface();
 }
 
+// Checking if the letter entered by user is already entered before
+bool isLetterAlreadyEntered(const std::vector<char>& letters, const char& letter) {
+	for (auto& symbol : letters) {
+		if (symbol == letter) {
+			return true;
+		}
+	}
+	return false;
+}
+
+// Checking if all letters from the words are guessed
+// (if all bool variables are 'true')
+bool isWordRevealed(const std::vector<bool>& guessed_letters) {
+	for (auto element : guessed_letters) {
+		if (element == false) {
+			return false;
+		}
+	}
+	return true;
+}
+
+// Validate letters to be only uppercase nad lowercase
+bool validateLetter(const char& letter) {
+	if (letter >= ASCII_CODE_a && letter <= ASCII_CODE_z) {
+		return true;
+	}
+	return false;
+}
+
 // Validate the word length and the count of attempts entered by user
 bool validateNumber(const short int& number) {
 	if (number >= LOWER_BOUND && number <= UPPER_BOUND) {
@@ -195,7 +330,3 @@ bool validateNumber(const short int& number) {
 	}
 	return false;
 }
-
-// Function to check if the letter entered by user is valid
-// Function to check if the letter entered by user is already entered before or not
-// Function to check if the word is revealed or not
