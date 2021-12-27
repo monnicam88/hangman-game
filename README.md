@@ -23,7 +23,7 @@ When the game starts, the following menu is provided to the user:**
 - The user enters a letter. 
 - When you enter an invalid letter (not a Latin alphabet symbol), an error message is displayed.
 - When entering a valid letter:
-    - If the letter is part of the word , the places where it occurs are written.
+    - If the letter is part of the word, the places where it occurs are written.
     - If the letter is not part of the word, reduce the number of attempts by 1.
  - When you enter a letter that was entered earlier, the number of attempts is not reduced.
  - Until the number of attempts is complete or the user does not recognize the word, user entered a letters.
