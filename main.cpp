@@ -18,7 +18,7 @@
 int main() {
 	generateDictionary();
 	showGameInterface();
-	play();	// Function with all the logic for the game
+	play();	
 
 	return 0;
 }
