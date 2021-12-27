@@ -34,7 +34,7 @@ When the game starts, the following menu is provided to the user:**
 **The settings can change the behavior of the game. Decide for yourself how the game settings will change.
 There are 2 possible changes:**
 - Change the length of the word. By default, the length of the word is not limited. The player can choose to select words   between 5 and 7 letters, for example.
-- Change the number of attempts. By default, the player is entitled to 5 errors. This number can be changed, for example,   to 3 errors.
+- Change the number of attempts. By default, the player is entitled to 5 attempts. This number can be changed, for example,   to 3 attempts.
 
         3. EXIT
 
