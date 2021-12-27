@@ -82,6 +82,16 @@ void play() {
 		}
 		
 		else if (user_option == "2") {
+			short int new_length = 0;
+			readNewLengthOfTheWords(new_length);
+
+			// Check if user input is valid or not
+			if (!validateNumber(new_length)) {
+				std::cout << std::endl;
+				std::cout << "			Incorrect word length!" << std::endl;
+				std::cout << std::endl;
+			}
+			else changeTheWordsLength(new_length);
 		}
 		
 		else if (user_option == "3") {
@@ -93,7 +103,7 @@ void play() {
 			// Check if user input is valid or not
 			if (!validateNumber(new_attempts_count)) {
 				std::cout << std::endl;
-				std::cout << "		Incorrect attempts count!" << std::endl;
+				std::cout << "			Incorrect attempts count!" << std::endl;
 				std::cout << std::endl;
 			}
 			else changeTheCountOfGivenAttempts(new_attempts_count);
