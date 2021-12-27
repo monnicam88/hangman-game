@@ -33,4 +33,7 @@ void exitTheGame();
 void cleanScreen();
 void waitAndReturnToMenu();
 
+bool isLetterAlreadyEntered(const std::vector<char>& letters, const char& letter);
+bool isWordRevealed(const std::vector<bool>& guessed_letters);
+bool validateLetter(const char& letter);
 bool validateNumber(const short int& number);
