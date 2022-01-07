@@ -218,6 +218,8 @@ void play() {
 
 		else incorrectUserInput();
 	} while (true);
+	
+	printTheCountOfGuessedWords(count_of_guessed_words);
 }
 
 // Change the length of the words
