@@ -218,10 +218,6 @@ void play() {
 
 		else incorrectUserInput();
 	} while (true);
-	
-	// Show the user how many words he managed to reveal
-	std::cout << std::endl;
-	std::cout << "				  The words you manage to guess are: " << count_of_guessed_words << std::endl;
 }
 
 // Change the length of the words
