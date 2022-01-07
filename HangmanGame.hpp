@@ -28,6 +28,7 @@ void changeTheWordsLength(const short int& new_word_length);
 void changeTheCountOfGivenAttempts(const short int& new_attempts);
 void readNewLengthOfTheWords(short int& new_length);
 void readTheNewAttemptsCount(short int& new_attempts_count);
+void printTheCountOfGuessedWords(const short int number_of_guessed_words);
 void incorrectUserInput();
 void exitTheGame();
 void cleanScreen();
