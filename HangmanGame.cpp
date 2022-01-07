@@ -260,6 +260,12 @@ void readTheNewAttemptsCount(short int& new_attempts_count) {
 	std::cin >> new_attempts_count;
 }
 
+// Show the user how many words he managed to reveal
+void printTheCountOfGuessedWords(const short int number_of_guessed_words) {
+	std::cout << std::endl;
+	std::cout << "				  The words you manage to guess are: " << number_of_guessed_words << std::endl;
+}
+
 // Show message for incorrect user input
 void incorrectUserInput() {
 	std::cout << "  Your input is not correct. Please, enter a valid option to start the game! :)" << std::endl;
