@@ -3,6 +3,9 @@
    
 _This game is a simple implementation of the classic word-guessing game, Hangman. It is implemented in C++ with the use of vectors and strings from the standard library (as to avoid any manual memory management issues). More info about the game can be found here: https://en.wikipedia.org/wiki/Hangman_(game)_
 
+### SHORT INSTRUCTIONS
+When entering a symbol or number other than the numbers _**1, 2, 3**_ or _**4**_, the user cannot start the game. When changing the **length of the words** or **the number of attempts allowed**, if the user input is **invalid**, the player is required to **re-select one of the original options _**1, 2, 3**_ or _**4**_** and then start the game.
+
 ### Interface
 ---
 **To implement a version of the game Hangman by using a pre-generated or personal generated dictionary of words (optional). 
