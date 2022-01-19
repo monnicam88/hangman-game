@@ -186,29 +186,33 @@ void play() {
 		else if (user_option == "2") {
 			short int new_length = 0;
 			readNewLengthOfTheWords(new_length);
-
-			// Check if user input is valid or not
-			if (!validateNumber(new_length)) {
-				std::cout << std::endl;
-				std::cout << "			Incorrect word length!" << std::endl;
-				std::cout << std::endl;
+			
+			if (std::cin.fail()) {
+				showError();
 			}
-			else changeTheWordsLength(new_length);
+			else {
+				// Check if user input is valid or not
+				if (!validateNumber(new_length)) {
+					showMessageForIncorrectLength();
+				}
+				else changeTheWordsLength(new_length);
+			}	
 		}
 		
 		else if (user_option == "3") {
 			short int new_attempts_count = 0;
 			readTheNewAttemptsCount(new_attempts_count);
 			
-			// TO DO: Fix this validation to work with characters 
-			// because inputed character cause an infinite loop
-			// Check if user input is valid or not
-			if (!validateNumber(new_attempts_count)) {
-				std::cout << std::endl;
-				std::cout << "			Incorrect attempts count!" << std::endl;
-				std::cout << std::endl;
+			if (std::cin.fail()) {
+				showError();
 			}
-			else changeTheCountOfGivenAttempts(new_attempts_count);
+			else {
+				// Check if user input is valid or not
+				if (!validateNumber(new_attempts_count)) {
+					showMessageForIncorrectAttempts();
+				}
+				else changeTheCountOfGivenAttempts(new_attempts_count);
+			}
 		}
 
 		else if (user_option == "4") {
@@ -264,11 +268,29 @@ void printTheCountOfGuessedWords(const short int number_of_guessed_words) {
 	std::cout << "				  The words you manage to guess are: " << number_of_guessed_words << std::endl;
 }
 
+void showMessageForIncorrectLength() {
+	std::cout << std::endl;
+	std::cout << "			Incorrect word length!" << std::endl;
+	std::cout << std::endl;
+}
+
+void showMessageForIncorrectAttempts() {
+	std::cout << std::endl;
+	std::cout << "			Incorrect attempts count!" << std::endl;
+	std::cout << std::endl;
+}
+
 // Show message for incorrect user input
 void incorrectUserInput() {
 	std::cout << "  Your input is not correct. Please, enter a valid option to start the game! :)" << std::endl;
 	std::cout << "	REMINDER: A valid option is a number between 1 and 4!" << std::endl;
 	std::cout << std::endl;
+}
+
+void showError() {
+	std::cout << std::endl << "			Please, enter numbers only!" << std::endl << std::endl;
+	std::cin.clear();
+	std::cin.ignore(10000, '\n');
 }
 
 // Exit the game
