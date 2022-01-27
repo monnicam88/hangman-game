@@ -76,7 +76,7 @@ school
 talent
 wisdom
 zombie
-analize
+analyze
 biscuit
 college
 defence
@@ -120,6 +120,7 @@ template
 universe
 variable
 weakness
+question
 algorithm
 badminton
 chocolate
@@ -135,7 +136,6 @@ legendary
 macadamia
 newspaper
 obsession
-quesstion
 reference
 synthetic
 telephone
@@ -147,7 +147,7 @@ accelerate
 basketball
 calculator
 definition
-eartgquake
+earthquake
 foundation
 grandchild
 helicopter
