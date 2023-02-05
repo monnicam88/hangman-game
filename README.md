@@ -1,5 +1,5 @@
 ## Hangman Game
-                        Project for the course Introduction to programming - FMI 2021/2022
+                        Course project on Introduction to programming 2021/2022, Faculty of Mathematics and Informatics.
    
 _This game is a simple implementation of the classic word-guessing game, Hangman. It is implemented in C++ with the use of vectors and strings from the standard library (as to avoid any manual memory management issues). More info about the game can be found here: https://en.wikipedia.org/wiki/Hangman_(game)_
 
