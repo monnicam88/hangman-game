@@ -1,5 +1,5 @@
 ## Hangman Game
-                        Course project on Introduction to programming 2021/2022, Faculty of Mathematics and Informatics.
+[![C++14](https://img.shields.io/badge/C%2B%2B-14-orange)](https://en.cppreference.com/w/cpp/14) [![License: MIT](https://img.shields.io/badge/License-MIT-darkpurple.svg)](https://opensource.org/licenses/MIT)
    
 _This game is a simple implementation of the classic word-guessing game, Hangman. It is implemented in C++ with the use of vectors and strings from the standard library (as to avoid any manual memory management issues). More info about the game can be found here: https://en.wikipedia.org/wiki/Hangman_(game)_
 
@@ -42,8 +42,3 @@ There are 2 possible changes:**
         3. EXIT
 
 **When this option is selected, the game is exited and the program closes.**
-
-
-
-
-                    Created by: Monnica Mitreva
